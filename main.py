@@ -70,6 +70,8 @@ class GUI(threading.Thread):
         btn.grid(row=0, column=2)
         text.grid(row=1,column=1)
         stat.grid(row=2,column=2,sticky=E)
+        self.root.wm_attributes('-toolwindow', 'True')
+        self.root.resizable(False,False)
         self.root.mainloop()
 
 gui = GUI()

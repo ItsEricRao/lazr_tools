@@ -1,1 +1,4 @@
 /lazr
+/build
+/dist
+*.spec
