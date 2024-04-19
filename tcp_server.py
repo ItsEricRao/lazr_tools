@@ -10,7 +10,6 @@ server.bind((host,port))
 server.listen(5)
 
 clients = []
-names = []
 
 def broadcast(msg):
     for i in clients:
