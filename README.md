@@ -1,3 +1,6 @@
+<div align="center">
+    <img src="https://s2.loli.net/2023/08/28/2sJNZAxPIw7TtvL.png" alt="logo" width="96" />
+</div>
 <h1 align="center">Lazr Tools</h1>
 
 <div align="center">
