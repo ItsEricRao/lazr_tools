@@ -1,4 +1,4 @@
-import pydirectinput, ctypes, os, threading, psutil, time, socket, keyboard, sys
+import pydirectinput, ctypes, os, threading, psutil, time, socket, keyboard, base64, zlib, tempfile
 from tkinter import *
 SendInput = ctypes.windll.user32.SendInput
 
@@ -21,6 +21,14 @@ text_type = "utf-8"
 server_ip = "127.0.0.1"
 port  = 7000
 msg = ""
+
+# favicon
+ICON = zlib.decompress(base64.b64decode('eJxjYGAEQgEBBiDJwZDBy'
+    'sAgxsDAoAHEQCEGBQaIOAg4sDIgACMUj4JRMApGwQgF/ykEAFXxQRc='))
+
+_, ICON_PATH = tempfile.mkstemp()
+with open(ICON_PATH, 'wb') as icon_file:
+    icon_file.write(ICON)
 
 '''
 HotKey Detection
@@ -70,8 +78,8 @@ class GUI(threading.Thread):
         btn.grid(row=0, column=2)
         text.grid(row=1,column=1)
         stat.grid(row=2,column=2,sticky=E)
-        self.root.wm_attributes('-toolwindow', 'True')
         self.root.resizable(False,False)
+        self.root.iconbitmap(default=ICON_PATH)
         self.root.mainloop()
 
 gui = GUI()
