@@ -2,7 +2,7 @@ import threading
 import socket
 
 text_type = "utf-8"
-host = "127.0.0.1"
+host = "0.0.0.0"
 port = 7000
 
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -38,6 +38,7 @@ def new_client():
         print(f"Connected with {client_info}")
 
         clients.append(client_reference)
+        client_reference.send(str("ready").encode(text_type))
        
         thread = threading.Thread(target=get_message, args=[client_reference])
         thread.start()
