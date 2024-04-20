@@ -36,7 +36,7 @@ def new_client():
 
         client_reference,client_info = server.accept()
 
-        print(f"[{prefix}] Connected with {client_info[0]}")
+        print("[" + str(datetime.date.today()) + " " + str(time.strftime("%H:%M:%S", time.localtime())) +f"] Connected with {client_info[0]}")
 
         clients.append(client_reference)
         client_reference.send(str("ready").encode(text_type))
